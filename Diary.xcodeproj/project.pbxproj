@@ -120,9 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				A3726492193BE39000820FB6 /* AppDelegate.h */,
+				A3726493193BE39000820FB6 /* AppDelegate.m */,
 				A37264B6193BEF8B00820FB6 /* CoreDataStack.h */,
 				A37264B7193BEF8B00820FB6 /* CoreDataStack.m */,
-				A3726493193BE39000820FB6 /* AppDelegate.m */,
 				A3726498193BE39000820FB6 /* Images.xcassets */,
 				A3726495193BE39000820FB6 /* Diary.xcdatamodeld */,
 				A372648A193BE39000820FB6 /* Supporting Files */,

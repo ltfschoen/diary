@@ -22,6 +22,8 @@
 		A37264A3193BE39000820FB6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3726487193BE39000820FB6 /* CoreData.framework */; };
 		A37264AB193BE39000820FB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37264A9193BE39000820FB6 /* InfoPlist.strings */; };
 		A37264AD193BE39000820FB6 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264AC193BE39000820FB6 /* DiaryTests.m */; };
+		A37264B8193BEF8B00820FB6 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264B7193BEF8B00820FB6 /* CoreDataStack.m */; };
+		A37264B9193BEF8B00820FB6 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264B7193BEF8B00820FB6 /* CoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		A37264A8193BE39000820FB6 /* DiaryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DiaryTests-Info.plist"; sourceTree = "<group>"; };
 		A37264AA193BE39000820FB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A37264AC193BE39000820FB6 /* DiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryTests.m; sourceTree = "<group>"; };
+		A37264B6193BEF8B00820FB6 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		A37264B7193BEF8B00820FB6 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				A3726492193BE39000820FB6 /* AppDelegate.h */,
+				A37264B6193BEF8B00820FB6 /* CoreDataStack.h */,
+				A37264B7193BEF8B00820FB6 /* CoreDataStack.m */,
 				A3726493193BE39000820FB6 /* AppDelegate.m */,
 				A3726498193BE39000820FB6 /* Images.xcassets */,
 				A3726495193BE39000820FB6 /* Diary.xcdatamodeld */,
@@ -251,6 +257,7 @@
 				A3726497193BE39000820FB6 /* Diary.xcdatamodeld in Sources */,
 				A3726494193BE39000820FB6 /* AppDelegate.m in Sources */,
 				A3726490193BE39000820FB6 /* main.m in Sources */,
+				A37264B8193BEF8B00820FB6 /* CoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37264AD193BE39000820FB6 /* DiaryTests.m in Sources */,
+				A37264B9193BEF8B00820FB6 /* CoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+// new class method returning the type (i.e. CoreDataStack) of its instance
++ (instancetype)defaultStack;
+
 @interface CoreDataStack : NSObject
 
 // properties and methods of standard and reusable Core Data stack

@@ -17,6 +17,24 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+// create Singleton of CoreDataStack
++ (instancetype)defaultStack {
+    // define implementation for this class method
+    
+    // ensure only one instance of the CoreDataStack exists (as it is a Singleton)
+    // using a static variable (exists only once in an app) instance of CoreDataStack
+    static CoreDataStack *defaultStack;
+    
+    // ensure that initialization of the stack only occurs once
+    // use Grand Central Dispatches (GCD) 'dispatch_once' method
+    dispatch_once(&onceToken, ^{
+        defaultStack = [[self alloc] init];
+    });
+    
+    // return default stack from default stack method
+    return defaultStack;
+}
+
 - (void)saveContext
 {
     // error pointer for inspection in debugging

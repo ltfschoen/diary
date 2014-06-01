@@ -10,6 +10,9 @@
 
 @implementation AppDelegate
 
+// manually synthesising properties of Core Data
+// publicly - read only
+// privately - read/write
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;

@@ -56,9 +56,13 @@
 
 - (void)saveContext
 {
+    // error pointer for inspection in debugging
     NSError *error = nil;
+    // grab context object
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
+        // check if any changes to avoid unnecessarily saving and disc access
+        // call method save, passing it the error parameter
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
              // Replace this implementation with code to handle the error appropriately.
              // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
@@ -78,7 +82,9 @@
         return _managedObjectContext;
     }
     
+    // use lazy loading technique standard practice of only creating this Managed Object Context @property if it is being accessed
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    // check if nil before creating to prevent crash
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] init];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
@@ -106,10 +112,13 @@
         return _persistentStoreCoordinator;
     }
     
+    // grab URL of the Diary apps SQLite Persistent Store (Database)
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Diary.sqlite"];
     
+    // create an error pointer to check any errors when adding Persistent Store to Persistent Store Coordinator
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    // error if returns NO when attempt to add
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
@@ -135,6 +144,8 @@
          
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        
+        // only for debugging purposes (not to be shipped with production code)
         abort();
     }    
     
@@ -146,6 +157,7 @@
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
+    // use 'lastObject' to take array of directories (should only be one directory element found) and transform into an instance
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 

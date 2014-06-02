@@ -24,6 +24,8 @@
 		A37264AD193BE39000820FB6 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264AC193BE39000820FB6 /* DiaryTests.m */; };
 		A37264B8193BEF8B00820FB6 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264B7193BEF8B00820FB6 /* CoreDataStack.m */; };
 		A37264B9193BEF8B00820FB6 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264B7193BEF8B00820FB6 /* CoreDataStack.m */; };
+		A37264BC193BFFD500820FB6 /* DiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264BB193BFFD500820FB6 /* DiaryEntry.m */; };
+		A37264BD193BFFD500820FB6 /* DiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264BB193BFFD500820FB6 /* DiaryEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		A37264AC193BE39000820FB6 /* DiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryTests.m; sourceTree = "<group>"; };
 		A37264B6193BEF8B00820FB6 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		A37264B7193BEF8B00820FB6 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		A37264BA193BFFD500820FB6 /* DiaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryEntry.h; sourceTree = "<group>"; };
+		A37264BB193BFFD500820FB6 /* DiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				A37264B7193BEF8B00820FB6 /* CoreDataStack.m */,
 				A3726498193BE39000820FB6 /* Images.xcassets */,
 				A3726495193BE39000820FB6 /* Diary.xcdatamodeld */,
+				A37264BA193BFFD500820FB6 /* DiaryEntry.h */,
+				A37264BB193BFFD500820FB6 /* DiaryEntry.m */,
 				A372648A193BE39000820FB6 /* Supporting Files */,
 			);
 			path = Diary;
@@ -256,6 +262,7 @@
 			files = (
 				A3726497193BE39000820FB6 /* Diary.xcdatamodeld in Sources */,
 				A3726494193BE39000820FB6 /* AppDelegate.m in Sources */,
+				A37264BC193BFFD500820FB6 /* DiaryEntry.m in Sources */,
 				A3726490193BE39000820FB6 /* main.m in Sources */,
 				A37264B8193BEF8B00820FB6 /* CoreDataStack.m in Sources */,
 			);
@@ -267,6 +274,7 @@
 			files = (
 				A37264AD193BE39000820FB6 /* DiaryTests.m in Sources */,
 				A37264B9193BEF8B00820FB6 /* CoreDataStack.m in Sources */,
+				A37264BD193BFFD500820FB6 /* DiaryEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

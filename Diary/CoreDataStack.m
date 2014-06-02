@@ -24,6 +24,7 @@
     // ensure only one instance of the CoreDataStack exists (as it is a Singleton)
     // using a static variable (exists only once in an app) instance of CoreDataStack
     static CoreDataStack *defaultStack;
+    static dispatch_once_t onceToken;
     
     // ensure that initialization of the stack only occurs once
     // use Grand Central Dispatches (GCD) 'dispatch_once' method

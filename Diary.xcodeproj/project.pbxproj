@@ -26,6 +26,8 @@
 		A37264B9193BEF8B00820FB6 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264B7193BEF8B00820FB6 /* CoreDataStack.m */; };
 		A37264BC193BFFD500820FB6 /* DiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264BB193BFFD500820FB6 /* DiaryEntry.m */; };
 		A37264BD193BFFD500820FB6 /* DiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A37264BB193BFFD500820FB6 /* DiaryEntry.m */; };
+		A37264BF193D32B700820FB6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37264BE193D32B700820FB6 /* MainStoryboard.storyboard */; };
+		A37264C0193D32B700820FB6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37264BE193D32B700820FB6 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		A37264B7193BEF8B00820FB6 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		A37264BA193BFFD500820FB6 /* DiaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryEntry.h; sourceTree = "<group>"; };
 		A37264BB193BFFD500820FB6 /* DiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryEntry.m; sourceTree = "<group>"; };
+		A37264BE193D32B700820FB6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,7 @@
 		A3726475193BE39000820FB6 = {
 			isa = PBXGroup;
 			children = (
+				A37264BE193D32B700820FB6 /* MainStoryboard.storyboard */,
 				A3726489193BE39000820FB6 /* Diary */,
 				A37264A6193BE39000820FB6 /* DiaryTests */,
 				A3726480193BE39000820FB6 /* Frameworks */,
@@ -240,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37264BF193D32B700820FB6 /* MainStoryboard.storyboard in Resources */,
 				A372648E193BE39000820FB6 /* InfoPlist.strings in Resources */,
 				A3726499193BE39000820FB6 /* Images.xcassets in Resources */,
 			);
@@ -249,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37264C0193D32B700820FB6 /* MainStoryboard.storyboard in Resources */,
 				A37264AB193BE39000820FB6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

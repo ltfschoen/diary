@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="277" y="-111"/>
         </scene>
-        <!--View Controller-->
+        <!--New Entry View Controller-->
         <scene sceneID="Uva-76-nD3">
             <objects>
-                <viewController id="3HG-xO-iyP" sceneMemberID="viewController">
+                <viewController id="3HG-xO-iyP" customClass="NewEntryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tfW-wV-Zin"/>
                         <viewControllerLayoutGuide type="bottom" id="sy4-J4-Chb"/>
@@ -53,8 +53,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Sdv-hJ-0Va">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="uaN-YO-gWD"/>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="laE-pc-tny"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="uaN-YO-gWD">
+                            <connections>
+                                <action selector="cancelWasPressed:" destination="3HG-xO-iyP" id="fgs-uW-7gw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="laE-pc-tny">
+                            <connections>
+                                <action selector="doneWasPressed:" destination="3HG-xO-iyP" id="hMN-Ms-deg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvu-jE-bka" userLabel="First Responder" sceneMemberID="firstResponder"/>

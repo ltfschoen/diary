@@ -140,7 +140,11 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     // use 'lastObject' to take array of directories (should only be one directory element found) and transform into an instance
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+//    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSLog(@"%@", url.absoluteString);
+    return url;
 }
 
 @end

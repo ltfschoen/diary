@@ -7,6 +7,8 @@
 //
 
 #import "NewEntryViewController.h"
+#import "DiaryEntry.h"
+#import "CoreDataStack.h"
 
 @interface NewEntryViewController ()
 
@@ -35,9 +37,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Custom methods
+
 - (void)dismissSelf {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - IBActions for Buttons
 
 - (IBAction)doneWasPressed:(id)sender {
     [self dismissSelf];

@@ -10,4 +10,6 @@
 
 @interface NewEntryViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+
 @end

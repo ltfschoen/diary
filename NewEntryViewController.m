@@ -43,9 +43,31 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)insertDiaryEntry {
+    
+    // grab Core Data Stack
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    
+    // create new diary entry instance
+    // insert new entity into Managed Object Context (Core Data Stack environment)
+    DiaryEntry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"DiaryEntry" inManagedObjectContext:coreDataStack.managedObjectContext];
+    
+    // configure new diary entry
+    entry.body = self.textField.text;
+    
+    // since DiaryEntry class has been setup to scalar properties, all integers, floats, and dates are represented by scalar properties (not Objects), so calculate seconds that have passed since 1970 to determine todays date and save this into our entry
+    entry.date = [[NSDate date] timeIntervalSince1970];
+    
+    // save Core Data Stack (Managed Object Context) with new entities
+    [coreDataStack saveContext];
+}
+
 #pragma mark - IBActions for Buttons
 
 - (IBAction)doneWasPressed:(id)sender {
+    
+    // call diary entry method before dismiss and done pressed
+    [self insertDiaryEntry];
     [self dismissSelf];
 }
 

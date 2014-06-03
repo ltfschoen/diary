@@ -142,8 +142,12 @@
     // use 'lastObject' to take array of directories (should only be one directory element found) and transform into an instance
 //    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     
+    // store in NSURL variable to allow verification of data Stored in the Database using NSLog
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    // display location of SQLite database
     NSLog(@"%@", url.absoluteString);
+    
     return url;
 }
 

@@ -80,6 +80,12 @@
 
 #pragma mark - Fetch Results Controller method
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    // grab the section info from the Fetch Results Controller
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo name];
+}
+
 // override the property getter
 - (NSFetchedResultsController *)fetchedResultsController {
     
@@ -94,7 +100,7 @@
     NSFetchRequest *fetchRequest = [self entryListFetchRequest];
     
     // create Fetch Results Controller
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:coreDataStack.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:coreDataStack.managedObjectContext sectionNameKeyPath:@"sectionName" cacheName:nil];
     
     // set the Delegate on the Fetch Results Controller
     _fetchedResultsController.delegate = self;

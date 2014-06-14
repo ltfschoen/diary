@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30BF8B5194C047900F30E6F /* EntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30BF8B4194C047900F30E6F /* EntryListTableViewController.m */; };
+		A30BF8B6194C047900F30E6F /* EntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30BF8B4194C047900F30E6F /* EntryListTableViewController.m */; };
 		A3726482193BE39000820FB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3726481193BE39000820FB6 /* Foundation.framework */; };
 		A3726484193BE39000820FB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3726483193BE39000820FB6 /* CoreGraphics.framework */; };
 		A3726486193BE39000820FB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3726485193BE39000820FB6 /* UIKit.framework */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A30BF8B3194C047900F30E6F /* EntryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryListTableViewController.h; path = ../EntryListTableViewController.h; sourceTree = "<group>"; };
+		A30BF8B4194C047900F30E6F /* EntryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryListTableViewController.m; path = ../EntryListTableViewController.m; sourceTree = "<group>"; };
 		A372647E193BE39000820FB6 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3726481193BE39000820FB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3726483193BE39000820FB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,6 +145,8 @@
 				A37264BB193BFFD500820FB6 /* DiaryEntry.m */,
 				A37264C1193D38D700820FB6 /* NewEntryViewController.h */,
 				A37264C2193D38D700820FB6 /* NewEntryViewController.m */,
+				A30BF8B3194C047900F30E6F /* EntryListTableViewController.h */,
+				A30BF8B4194C047900F30E6F /* EntryListTableViewController.m */,
 				A372648A193BE39000820FB6 /* Supporting Files */,
 			);
 			path = Diary;
@@ -278,6 +284,7 @@
 				A37264BC193BFFD500820FB6 /* DiaryEntry.m in Sources */,
 				A3726490193BE39000820FB6 /* main.m in Sources */,
 				A37264B8193BEF8B00820FB6 /* CoreDataStack.m in Sources */,
+				A30BF8B5194C047900F30E6F /* EntryListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +296,7 @@
 				A37264B9193BEF8B00820FB6 /* CoreDataStack.m in Sources */,
 				A37264C4193D38D700820FB6 /* NewEntryViewController.m in Sources */,
 				A37264BD193BFFD500820FB6 /* DiaryEntry.m in Sources */,
+				A30BF8B6194C047900F30E6F /* EntryListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +487,7 @@
 				A37264B2193BE39000820FB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A37264B3193BE39000820FB6 /* Build configuration list for PBXNativeTarget "DiaryTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +496,7 @@
 				A37264B5193BE39000820FB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

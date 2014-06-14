@@ -7,8 +7,12 @@
 //
 
 #import "EntryListTableViewController.h"
+#import "DiaryEntry.h"
 
-@interface EntryListTableViewController ()
+// tell compiler that we conform to the NSFetchedResultsController Delegate Protocol
+@interface EntryListTableViewController () <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -32,6 +36,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.fetchedResultsController performFetch:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,25 +50,27 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    // return the number of sections.
+    return self.fetchedResultsController.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    // return the number of rows in the section of tableview.
+    // where each section in tableview is represented by a sectionInfo Object that conforms to the NSFetchedResultsSectionInfo Protocol
+    // grab specific sectionInfo Object and return from it the numberOfObjects in that section
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    
+    return [sectionInfo numberOfObjects];
 }
 
-#pragma mark - Fetch method
+#pragma mark - Fetch Request method
 
 // use method to create a fetch request so the fetch request can be tested independently of actually fetching data
 - (NSFetchRequest *)entryListFetchRequest {
     
     // create and return homogenous fetch request (i.e. need more than one fetch request to retrieve multiple entries)
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"KPInfoFeedEntry"];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"DiaryEntry"];
     
     // create an array of sort descriptors with only one entry (date) in the array (no predicate required)
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
@@ -70,16 +78,47 @@
     return fetchRequest;
 }
 
-/*
+#pragma mark - Fetch Results Controller method
+
+// override the property getter
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    // use lazy loading to only create a Fetch Results Controller when it is accessed
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    
+    // grab Fetch Request
+    NSFetchRequest *fetchRequest = [self entryListFetchRequest];
+    
+    // create Fetch Results Controller
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:coreDataStack.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    // set the Delegate on the Fetch Results Controller
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+}
+
+// implement methods in FetchedResultsController Delegate Protocol
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    // reload tableView data without animations when this method called (whenever tableView changes)
+    [self.tableView reloadData];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    // configure each individual cell for display
+    DiaryEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = entry.body;
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

@@ -78,6 +78,26 @@
     return fetchRequest;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // grab the Object that want to delete
+    DiaryEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // grab the Core Data Stack
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    
+    // delete Object using the deleteObject method on Managed Object Context
+    [[coreDataStack managedObjectContext] deleteObject:entry];
+    
+    // save Context
+    [coreDataStack saveContext];
+}
+
 #pragma mark - Fetch Results Controller method
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -108,10 +128,52 @@
     return _fetchedResultsController;
 }
 
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    
+    // allow animation of delete row using Batch Approach to defer reload
+    [self.tableView beginUpdates];
+}
+
+// remove the Cell from the TableView
+// this method called whenever row is inserted, deleted, changed, moved
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    // switch 'type' depending on what passed in
+    switch (type) {
+            // case where new tableView cell has been inserted
+            // pass in array of parameter newIndexPath
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+            // case where tableView cell has been deleted
+            // fetch results as specified indexPath
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+// implement method from NSFetchedResultsDelegate Protocol to prevent app crashing on animation when Deleting table view rows and only one shown, which causes the entire section to be deleted inadvertently
+// note: this method called whenever section is created or deleted
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    switch (type) {
+            // sections are represented by NSIndexedSet Class, so we use this to create them
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
 // implement methods in FetchedResultsController Delegate Protocol
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     // reload tableView data without animations when this method called (whenever tableView changes)
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
+    [self.tableView endUpdates];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

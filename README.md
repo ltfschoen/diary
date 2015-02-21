@@ -33,12 +33,13 @@ Setup
     - Choose Target Device (Xcode > Menu > Product > Destination > iOS Device)
     - Run on iOS Device (Xcode > Menu > Product > Run)
 
+Troubleshooting
+-------
+
+* Reset iOS Simulator (iOS Simulator > Reset Contents & Settings > Reset)
+
 Screenshots
 -------
 
 ![ScreenShot1](Screenshots/screenshot1.png)![ScreenShot2](Screenshots/screenshot2.png)![ScreenShot3](Screenshots/screenshot3.png)
 
-Troubleshooting
--------
-
-* Reset iOS Simulator (iOS Simulator > Reset Contents & Settings > Reset)

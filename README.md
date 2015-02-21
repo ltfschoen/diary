@@ -21,8 +21,10 @@ Setup
 
 1. **Download Xcode**
 
-2. **Setup**
+2. **Setup Locally**
   * Clone or Fork: [Diary App repository](https://github.com/ltfschoen/diary.git)
+
+3. **Run the App**
   * Option #1 (Run in iOS Simulator)
     - Choose Target Device (Xcode > Menu > Product > Destination > iPhone 6)
       Note: Scroll to top in the iPhone Simulator if you use iPhone 6 Plus or iPad)
@@ -32,6 +34,10 @@ Setup
     - Connect iOS Device to Mac via USB
     - Choose Target Device (Xcode > Menu > Product > Destination > iOS Device)
     - Run on iOS Device (Xcode > Menu > Product > Run)
+
+4. **Play with App**
+  * Click the **+** button (shown top-right corner) in the Diary List View
+  * Enter a New Diary Entry value in the input field and Press "Done" to be returned to an updated Diary List View that includes it. Note that each Diary Entry is categorised by the month it was recorded by the user
 
 Troubleshooting
 -------

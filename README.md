@@ -36,7 +36,7 @@ Setup
 Screenshots
 -------
 
-![ScreenShot1](screenshot1.png)![ScreenShot2](screenshot2.png)![ScreenShot3](screenshot3.png)
+![ScreenShot1](Screenshots/screenshot1.png)![ScreenShot2](Screenshots/screenshot2.png)![ScreenShot3](Screenshots/screenshot3.png)
 
 Troubleshooting
 -------
